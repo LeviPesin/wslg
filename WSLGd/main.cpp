@@ -106,6 +106,7 @@ std::string TranslateWindowsPath(const char * Path)
         result += buffer.data();
     }
     while (!result.empty() && (result.back() == '\n' || result.back() == '/')) {
+        result.pop_back();
     }
 
     THROW_ERRNO_IF(EINVAL, pclose(pipe.release()) != 0);
